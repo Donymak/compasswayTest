@@ -60,12 +60,12 @@ const SignUp = () => {
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextField
-                            id="name"
-                            name="name"
+                            id="username"
+                            name="username"
                             type="text"
-                            label="Name"
+                            label="Username"
                             sx={{mb: '20px', width: '250px'}}
-                            {...register('name', {
+                            {...register('username', {
                                 required: 'Name is required',
                                 pattern: {
                                     value: /^[\w.@+-]+$/,
@@ -73,8 +73,8 @@ const SignUp = () => {
                                 }
                             })}
                             autoComplete="name"
-                            error={Boolean(errors.name)}
-                            helperText={errors.name?.message}
+                            error={Boolean(errors.usernaame)}
+                            helperText={errors.usernaame?.message}
                         />
                         <TextField
                             id="email"

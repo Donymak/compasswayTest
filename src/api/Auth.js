@@ -1,11 +1,12 @@
 export const signup = async (userData) => {
     const response = await fetch(
-        'http://68.183.74.14:4005/api/users',
+        'http://68.183.74.14:4005/api/users/',
         {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: `Basic ZnNfdGVzdF80OnROa3RTZ00zVkZxOQ==`
             },
             body: JSON.stringify(userData),
         }

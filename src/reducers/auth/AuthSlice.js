@@ -6,9 +6,9 @@ export const signupUser = createAsyncThunk(
     async (userData, thunkAPI) => {
         try {
             const response = await signup(userData);
-            if (response.status === 200) {
-                localStorage.setItem('token', response.data.token);
-                return { ...response.data, username: userData.name, email: userData.email };
+            if (response.status === 201) {
+                localStorage.setItem('token', btoa(`${userData.username}:${userData.password}`));
+                return { ...response.data, username: userData.username, email: userData.email };
             } else {
                 return thunkAPI.rejectWithValue(response.data);
             }
@@ -79,8 +79,8 @@ export const userSlice = createSlice({
             .addCase(signupUser.fulfilled, (state, { payload }) => {
                 state.isFetching = false;
                 state.isSuccess = true;
-                state.email = payload.user.email;
-                state.username = payload.user.name;
+                state.email = payload.email;
+                state.username = payload.username;
             })
             .addCase(signupUser.pending, (state) => {
                 state.isFetching = true;
