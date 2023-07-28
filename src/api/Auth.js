@@ -6,7 +6,6 @@ export const signup = async (userData) => {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: `Basic ZnNfdGVzdF80OnROa3RTZ00zVkZxOQ==`
             },
             body: JSON.stringify(userData),
         }
