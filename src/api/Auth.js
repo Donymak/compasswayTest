@@ -1,6 +1,7 @@
+const API_HOST = process.env.REACT_APP_API_HOST;
 export const signup = async (userData) => {
     const response = await fetch(
-        'http://68.183.74.14:4005/api/users/',
+        `${API_HOST}/users/`,
         {
             method: 'POST',
             headers: {
@@ -16,7 +17,7 @@ export const signup = async (userData) => {
 export const login = async (userData) => {
     const token = btoa(`${userData.username}:${userData.password}`);
     const response = await fetch(
-        'http://68.183.74.14:4005/api/users/current',
+        `${API_HOST}/users/current/`,
         {
             method: 'GET',
             headers: {
@@ -31,7 +32,7 @@ export const login = async (userData) => {
 
 export const fetchUserByToken = async (token) => {
     const response = await fetch(
-        'http://68.183.74.14:4005/api/users/current',
+        `${API_HOST}/users/current/`,
         {
             method: 'GET',
             headers: {

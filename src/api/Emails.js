@@ -1,6 +1,7 @@
+const API_HOST = process.env.REACT_APP_API_HOST;
 export const fetchEmails = async (token, limit, offset) => {
     const response = await fetch(
-        `http://68.183.74.14:4005/api/emails/?limit=${limit}&offset=${offset}`,
+        `${API_HOST}/emails/?limit=${limit}&offset=${offset}`,
         {
             method: 'GET',
             headers: {
@@ -15,7 +16,7 @@ export const fetchEmails = async (token, limit, offset) => {
 
 export const createEmail = async (token, emailData) => {
     const response = await fetch(
-        'http://68.183.74.14:4005/api/emails/',
+        `${API_HOST}/emails/`,
         {
             method: 'POST',
             headers: {
